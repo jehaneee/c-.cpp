@@ -17,6 +17,7 @@ int ch;
     	cout<<"\n\t\t<<< Program of operations >>>";
     	cout<<"\n\n1.\tAddition\n2.\tSubtraction\n3.\tMultiplication\n4.\tDivision\n5.\tModulus\n6.\tExit\n";
     	cout<<"\nEnter your choice: ";
+    	cin>>ch;
     	
     	switch(ch) {
     		case 1:
@@ -32,7 +33,7 @@ int ch;
     			div();
     			break;
     		case 5:
-    			mod;
+    			mod();
     			break;
     		case 6:
     			return 0;
@@ -40,7 +41,6 @@ int ch;
     			cout<<"\n\nInvalid input. Please try again.\n";
 		}
 	}while(ch != 6);
-	cin.get();
 }
 
 void add(){
@@ -50,7 +50,7 @@ void add(){
 	cout<<"\nSum is "<<ans<<"\n";
 }
 
-void sub (){
+void sub(){
 	cout<<"\nEnter two numbers to subtract: ";
 	cin>>num1>>num2;
 	ans = num1 - num2;
@@ -64,7 +64,7 @@ void mul(){
 	cout<<"\nProduct is "<<ans<<"\n";
 }
 
-void div(){
+void div (){
 	cout<<"\Enter two numbers to divide: ";
 	cin>>num1>>num2;
 	ans = (float)num1 / num2;
