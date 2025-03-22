@@ -1,0 +1,61 @@
+import heapq
+
+def heapify(arr):
+    heapq.heapify(arr)
+
+def insert_element(heap, element):
+    heapq.heappush(heap, element)
+    print(f"\nInserted {element} into the heap.")
+
+def delete_element(heap):
+    if heap:
+        removed = heapq.heappop(heap)
+        print(f"\nRemoved {removed} from the heap.")
+    else:
+        print("\nHeap is empty. No element to delete.")
+
+def edit_element(heap, old_value, new_value):
+    if old_value in heap:
+        heap.remove(old_value)
+        heapq.heappush(heap, new_value)
+        print(f"\nReplaced {old_value} with {new_value}.")
+        heapify(heap)  
+    else:
+        print(f"\nElement {old_value} not found in the heap.")
+
+def show_heap(heap):
+    print("\nCurrent Heap Structure:", heap)
+
+def main():
+    heap = []
+    while True:
+        print("\nHeap Management System:")
+        print("1. Add New Element")
+        print("2. Remove Element")
+        print("3. Modify Element")
+        print("4. Display Heap")
+        print("5. Exit")
+        
+        try:
+            choice = int(input("Choose an option (1-5): "))
+            if choice == 1:
+                val = int(input("\nEnter number to insert: "))
+                insert_element(heap, val)
+            elif choice == 2:
+                delete_element(heap)
+            elif choice == 3:
+                old_val = int(input("\nEnter element to update: "))
+                new_val = int(input("Enter new value: "))
+                edit_element(heap, old_val, new_val)
+            elif choice == 4:
+                show_heap(heap)
+            elif choice == 5:
+                print("\nExiting program... Goodbye!")
+                break
+            else:
+                print("\nInvalid choice. Please enter a number between 1-5.")
+        except ValueError:
+            print("\nInvalid input. Please enter a valid number.")
+
+if __name__ == "__main__":
+    main()
